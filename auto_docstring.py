@@ -834,7 +834,7 @@ def autodoc(view, edit, region, all_defs, desired_style, file_type,
         decl_str = view.substr(target).lstrip()
 
         if decl_str.startswith(('def', 'async')):
-            typ, name, args, ret_ano = re.match(_func_decl_re, decl_str).groups()
+            typ, name, args, ret_ano = re.match(_func_decl_re, decl_str, re.MULTILINE).groups()
             if not ret_ano:
                 ret_ano = ""
         elif decl_str.startswith('class'):
